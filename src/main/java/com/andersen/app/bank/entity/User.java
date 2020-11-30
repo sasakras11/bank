@@ -3,6 +3,7 @@ package com.andersen.app.bank.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Builder
@@ -21,12 +22,14 @@ public class User {
     private Integer id;
 
     @Column(name = "first_name")
+
     private String firstName;
 
     @Column(name = "last_name")
     private String lastName;
 
     @Column(name = "email")
+    @
     private  String email;
 
     @Column(name = "password")
@@ -36,7 +39,8 @@ public class User {
     @Column(name = "role")
     private Role role;
 
-//    @OneToMany
-//    private List<Card> cards;
+    @OneToMany(mappedBy = "user",
+            cascade = CascadeType.ALL)
+    private List<Card> cards;
 
 }
